@@ -23,5 +23,19 @@ interface WakelockEventDao {
         """,
     )
     fun between(startMillis: Long, endMillis: Long): Flow<List<WakelockEventEntity>>
+
+    @Query(
+        """
+        SELECT * FROM wakelock_events
+        WHERE packageName = :packageName
+          AND acquiredAtMillis BETWEEN :startMillis AND :endMillis
+        ORDER BY acquiredAtMillis ASC
+        """,
+    )
+    fun betweenForPackage(
+        packageName: String,
+        startMillis: Long,
+        endMillis: Long,
+    ): Flow<List<WakelockEventEntity>>
 }
 

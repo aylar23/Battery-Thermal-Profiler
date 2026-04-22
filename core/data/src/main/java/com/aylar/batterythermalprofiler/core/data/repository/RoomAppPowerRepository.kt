@@ -26,5 +26,8 @@ class RoomAppPowerRepository @Inject constructor(
 
     override fun topLatestWindow(limit: Int): Flow<List<AppPowerEntry>> =
         dao.topLatestWindow(limit).map { list -> list.map { it.toDomain() } }
+
+    override fun entriesForLatestWindowOfDuration(durationMillis: Long): Flow<List<AppPowerEntry>> =
+        dao.entriesForLatestWindowOfDuration(durationMillis).map { list -> list.map { it.toDomain() } }
 }
 

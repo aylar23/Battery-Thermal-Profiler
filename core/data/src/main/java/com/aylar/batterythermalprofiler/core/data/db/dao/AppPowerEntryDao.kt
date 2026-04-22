@@ -35,5 +35,18 @@ interface AppPowerEntryDao {
         """,
     )
     fun topLatestWindow(limit: Int): Flow<List<AppPowerEntryEntity>>
+
+    @Query(
+        """
+        SELECT * FROM app_power_entries
+        WHERE (windowEndMillis - windowStartMillis) = :durationMillis
+          AND windowEndMillis = (
+            SELECT MAX(windowEndMillis) FROM app_power_entries
+            WHERE (windowEndMillis - windowStartMillis) = :durationMillis
+          )
+        ORDER BY estimatedMah DESC
+        """,
+    )
+    fun entriesForLatestWindowOfDuration(durationMillis: Long): Flow<List<AppPowerEntryEntity>>
 }
 

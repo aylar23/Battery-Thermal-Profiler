@@ -21,5 +21,13 @@ class RoomWakelockRepository @Inject constructor(
 
     override fun eventsBetween(startMillis: Long, endMillis: Long): Flow<List<WakelockEvent>> =
         dao.between(startMillis, endMillis).map { list -> list.map { it.toDomain() } }
+
+    override fun eventsBetweenForPackage(
+        packageName: String,
+        startMillis: Long,
+        endMillis: Long,
+    ): Flow<List<WakelockEvent>> =
+        dao.betweenForPackage(packageName, startMillis, endMillis)
+            .map { list -> list.map { it.toDomain() } }
 }
 

@@ -12,5 +12,9 @@ interface AppPowerRepository {
     ): Flow<List<AppPowerEntry>>
 
     fun topLatestWindow(limit: Int): Flow<List<AppPowerEntry>>
+
+    fun entriesForLatestWindowOfDuration(
+        durationMillis: Long,
+    ): Flow<List<AppPowerEntry>>
 }
 
