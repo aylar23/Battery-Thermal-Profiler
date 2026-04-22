@@ -10,5 +10,7 @@ interface AppPowerRepository {
         windowEndMillis: Long,
         limit: Int,
     ): Flow<List<AppPowerEntry>>
+
+    fun topLatestWindow(limit: Int): Flow<List<AppPowerEntry>>
 }
 

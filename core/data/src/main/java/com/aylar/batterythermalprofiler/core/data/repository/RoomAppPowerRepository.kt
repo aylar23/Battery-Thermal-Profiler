@@ -23,5 +23,8 @@ class RoomAppPowerRepository @Inject constructor(
     ): Flow<List<AppPowerEntry>> =
         dao.topByEstimatedMah(windowStartMillis, windowEndMillis, limit)
             .map { list -> list.map { it.toDomain() } }
+
+    override fun topLatestWindow(limit: Int): Flow<List<AppPowerEntry>> =
+        dao.topLatestWindow(limit).map { list -> list.map { it.toDomain() } }
 }
 

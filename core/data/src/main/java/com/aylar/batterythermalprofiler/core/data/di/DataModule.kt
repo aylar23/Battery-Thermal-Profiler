@@ -8,10 +8,12 @@ import com.aylar.batterythermalprofiler.core.data.repository.RoomBatteryReposito
 import com.aylar.batterythermalprofiler.core.data.repository.RoomThermalRepository
 import com.aylar.batterythermalprofiler.core.data.repository.RoomWakelockRepository
 import com.aylar.batterythermalprofiler.core.data.settings.SettingsStore
+import com.aylar.batterythermalprofiler.core.data.usage.AndroidUsageStatsCollector
 import com.aylar.batterythermalprofiler.core.domain.repository.AppPowerRepository
 import com.aylar.batterythermalprofiler.core.domain.repository.BatteryRepository
 import com.aylar.batterythermalprofiler.core.domain.repository.ThermalRepository
 import com.aylar.batterythermalprofiler.core.domain.repository.WakelockRepository
+import com.aylar.batterythermalprofiler.core.domain.usage.UsageStatsCollector
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -48,6 +50,12 @@ object DatabaseModule {
     fun provideSettingsStore(
         @ApplicationContext context: Context,
     ): SettingsStore = SettingsStore(context)
+
+    @Provides
+    @Singleton
+    fun provideUsageStatsCollector(
+        impl: AndroidUsageStatsCollector,
+    ): UsageStatsCollector = impl
 }
 
 @Module

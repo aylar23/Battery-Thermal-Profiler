@@ -25,5 +25,15 @@ interface AppPowerEntryDao {
         windowEndMillis: Long,
         limit: Int,
     ): Flow<List<AppPowerEntryEntity>>
+
+    @Query(
+        """
+        SELECT * FROM app_power_entries
+        WHERE windowEndMillis = (SELECT MAX(windowEndMillis) FROM app_power_entries)
+        ORDER BY estimatedMah DESC
+        LIMIT :limit
+        """,
+    )
+    fun topLatestWindow(limit: Int): Flow<List<AppPowerEntryEntity>>
 }
 

@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.aylar.batterythermalprofiler.feature.apps.AppsScreen
-import com.aylar.batterythermalprofiler.feature.dashboard.DashboardScreen
+import com.aylar.batterythermalprofiler.feature.dashboard.DashboardRoute
 import com.aylar.batterythermalprofiler.feature.report.ReportScreen
 
 @Composable
@@ -19,7 +19,7 @@ fun AppNavHost(
         startDestination = Routes.Dashboard,
         modifier = modifier,
     ) {
-        composable(Routes.Dashboard) { DashboardScreen() }
+        composable(Routes.Dashboard) { DashboardRoute() }
         composable(Routes.Apps) { AppsScreen() }
         composable(Routes.Report) { ReportScreen() }
     }
