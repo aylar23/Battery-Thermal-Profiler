@@ -4,6 +4,7 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.app.ForegroundServiceStartNotAllowedException
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -64,7 +65,17 @@ class BatteryMonitorService : Service() {
     override fun onCreate() {
         super.onCreate()
         ensureNotificationChannel()
-        startForeground(NOTIFICATION_ID, buildNotification(level = null, tempDeciC = null))
+        try {
+            startForeground(NOTIFICATION_ID, buildNotification(level = null, tempDeciC = null))
+        } catch (e: ForegroundServiceStartNotAllowedException) {
+            // Android may block FGS start from background/boot. Don't crash the process.
+            stopSelf()
+            return
+        } catch (t: Throwable) {
+            // Be defensive: if we can't become a foreground service, exit cleanly.
+            stopSelf()
+            return
+        }
         registerReceiver(receiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
 
         registerReceiver(powerReceiver, IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED))
