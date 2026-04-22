@@ -8,8 +8,24 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+
+# Build outputs (all modules)
+**/build/
+
+# Kotlin
+**/.kotlin/
+
+# Android Studio / IntelliJ
+/.idea/
+!.idea/.gitignore
+
+# Keystores
+*.jks
+*.keystore
+
+# Logs
+*.log
