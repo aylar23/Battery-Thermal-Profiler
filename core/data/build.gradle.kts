@@ -5,6 +5,12 @@ plugins {
     alias(libs.plugins.hilt.android)
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+    arg("room.incremental", "true")
+    arg("room.expandProjection", "true")
+}
+
 android {
     namespace = "com.aylar.batterythermalprofiler.core.data"
     compileSdk = 36
@@ -12,6 +18,10 @@ android {
     defaultConfig {
         minSdk = 26
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
     }
 
     compileOptions {
@@ -38,5 +48,9 @@ dependencies {
     ksp(libs.google.dagger.hilt.compiler)
 
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.room.testing)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
 

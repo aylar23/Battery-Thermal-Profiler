@@ -7,6 +7,6 @@ kotlin {
 }
 
 dependencies {
-    // Domain module intentionally stays framework-free in Phase 1.
+    implementation(libs.kotlinx.coroutines.core)
 }
 
