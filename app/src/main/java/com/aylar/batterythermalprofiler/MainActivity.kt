@@ -57,6 +57,12 @@ private fun AppScaffold() {
                     icon = {},
                 )
                 NavigationBarItem(
+                    selected = route == Routes.Trends,
+                    onClick = { navController.navigate(Routes.Trends) },
+                    label = { Text("Trends") },
+                    icon = {},
+                )
+                NavigationBarItem(
                     selected = route == Routes.Report,
                     onClick = { navController.navigate(Routes.Report) },
                     label = { Text("Report") },

@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.aylar.batterythermalprofiler.feature.apps.AppsRoute
 import com.aylar.batterythermalprofiler.feature.dashboard.DashboardRoute
 import com.aylar.batterythermalprofiler.feature.report.ReportScreen
+import com.aylar.batterythermalprofiler.feature.trends.TrendsRoute
 
 @Composable
 fun AppNavHost(
@@ -21,6 +22,7 @@ fun AppNavHost(
     ) {
         composable(Routes.Dashboard) { DashboardRoute() }
         composable(Routes.Apps) { AppsRoute() }
+        composable(Routes.Trends) { TrendsRoute() }
         composable(Routes.Report) { ReportScreen() }
     }
 }

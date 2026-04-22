@@ -4,5 +4,6 @@ object Routes {
     const val Dashboard = "dashboard"
     const val Apps = "apps"
     const val Report = "report"
+    const val Trends = "trends"
 }
 

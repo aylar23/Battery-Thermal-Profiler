@@ -6,6 +6,12 @@ plugins {
     alias(libs.plugins.hilt.android)
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
+}
+
 android {
     namespace = "com.aylar.batterythermalprofiler"
     compileSdk = 36
@@ -32,9 +38,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -65,6 +68,7 @@ dependencies {
     implementation(project(":feature:dashboard"))
     implementation(project(":feature:apps"))
     implementation(project(":feature:report"))
+    implementation(project(":feature:trends"))
 
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)

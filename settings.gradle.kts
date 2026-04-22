@@ -26,4 +26,4 @@ include(":core:domain")
 include(":feature:dashboard")
 include(":feature:apps")
 include(":feature:report")
- 
+include(":feature:trends")

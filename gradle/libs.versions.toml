@@ -19,6 +19,7 @@ robolectric = "4.14.1"
 workManager = "2.10.3"
 hiltExt = "1.2.0"
 lifecycleViewModel = "2.10.0"
+vico = "2.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,6 +54,10 @@ androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx"
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltExt" }
+
+vico-compose-m3 = { group = "com.patrykandpatryk.vico", name = "compose-m3", version.ref = "vico" }
+vico-compose = { group = "com.patrykandpatryk.vico", name = "compose", version.ref = "vico" }
+vico-core = { group = "com.patrykandpatryk.vico", name = "core", version.ref = "vico" }
 
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
