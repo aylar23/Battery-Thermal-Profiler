@@ -7,6 +7,7 @@ import com.aylar.batterythermalprofiler.core.data.repository.RoomAppPowerReposit
 import com.aylar.batterythermalprofiler.core.data.repository.RoomBatteryRepository
 import com.aylar.batterythermalprofiler.core.data.repository.RoomThermalRepository
 import com.aylar.batterythermalprofiler.core.data.repository.RoomWakelockRepository
+import com.aylar.batterythermalprofiler.core.data.settings.SettingsStore
 import com.aylar.batterythermalprofiler.core.domain.repository.AppPowerRepository
 import com.aylar.batterythermalprofiler.core.domain.repository.BatteryRepository
 import com.aylar.batterythermalprofiler.core.domain.repository.ThermalRepository
@@ -41,6 +42,12 @@ object DatabaseModule {
 
     @Provides
     fun provideWakelockEventDao(db: BatteryDatabase) = db.wakelockEventDao()
+
+    @Provides
+    @Singleton
+    fun provideSettingsStore(
+        @ApplicationContext context: Context,
+    ): SettingsStore = SettingsStore(context)
 }
 
 @Module

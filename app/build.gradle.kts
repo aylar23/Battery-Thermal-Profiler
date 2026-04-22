@@ -56,6 +56,9 @@ dependencies {
     ksp(libs.google.dagger.hilt.compiler)
 
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.hilt.work)
+    ksp(libs.androidx.hilt.compiler)
 
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
