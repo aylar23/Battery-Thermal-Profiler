@@ -29,5 +29,7 @@ class RoomWakelockRepository @Inject constructor(
     ): Flow<List<WakelockEvent>> =
         dao.betweenForPackage(packageName, startMillis, endMillis)
             .map { list -> list.map { it.toDomain() } }
+
+    override suspend fun deleteOlderThan(cutoffMillis: Long): Int = dao.deleteOlderThan(cutoffMillis)
 }
 

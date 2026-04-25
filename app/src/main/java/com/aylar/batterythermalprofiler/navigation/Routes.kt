@@ -5,5 +5,6 @@ object Routes {
     const val Apps = "apps"
     const val Report = "report"
     const val Trends = "trends"
+    const val Settings = "settings"
 }
 

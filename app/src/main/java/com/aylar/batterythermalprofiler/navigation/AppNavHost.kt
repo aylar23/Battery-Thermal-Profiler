@@ -9,6 +9,7 @@ import com.aylar.batterythermalprofiler.feature.apps.AppsRoute
 import com.aylar.batterythermalprofiler.feature.dashboard.DashboardRoute
 import com.aylar.batterythermalprofiler.feature.report.ReportRoute
 import com.aylar.batterythermalprofiler.feature.trends.TrendsRoute
+import com.aylar.batterythermalprofiler.feature.settings.SettingsRoute
 
 @Composable
 fun AppNavHost(
@@ -24,6 +25,7 @@ fun AppNavHost(
         composable(Routes.Apps) { AppsRoute() }
         composable(Routes.Trends) { TrendsRoute() }
         composable(Routes.Report) { ReportRoute() }
+        composable(Routes.Settings) { SettingsRoute() }
     }
 }
 

@@ -16,5 +16,7 @@ interface AppPowerRepository {
     fun entriesForLatestWindowOfDuration(
         durationMillis: Long,
     ): Flow<List<AppPowerEntry>>
+
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

@@ -48,5 +48,8 @@ interface AppPowerEntryDao {
         """,
     )
     fun entriesForLatestWindowOfDuration(durationMillis: Long): Flow<List<AppPowerEntryEntity>>
+
+    @Query("DELETE FROM app_power_entries WHERE windowEndMillis < :cutoffMillis")
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

@@ -12,5 +12,6 @@ interface WakelockRepository {
         startMillis: Long,
         endMillis: Long,
     ): Flow<List<WakelockEvent>>
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

@@ -23,5 +23,8 @@ interface ThermalSnapshotDao {
         """,
     )
     fun between(startMillis: Long, endMillis: Long): Flow<List<ThermalSnapshotEntity>>
+
+    @Query("DELETE FROM thermal_snapshots WHERE timestampMillis < :cutoffMillis")
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

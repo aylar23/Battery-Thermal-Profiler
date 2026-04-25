@@ -7,5 +7,6 @@ interface ThermalRepository {
     suspend fun insert(snapshot: ThermalSnapshot)
     fun latest(): Flow<ThermalSnapshot?>
     fun snapshotsBetween(startMillis: Long, endMillis: Long): Flow<List<ThermalSnapshot>>
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

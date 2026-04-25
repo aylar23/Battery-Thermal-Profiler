@@ -68,6 +68,12 @@ private fun AppScaffold() {
                     label = { Text("Report") },
                     icon = {},
                 )
+                NavigationBarItem(
+                    selected = route == Routes.Settings,
+                    onClick = { navController.navigate(Routes.Settings) },
+                    label = { Text("Settings") },
+                    icon = {},
+                )
             }
         },
     ) { innerPadding ->

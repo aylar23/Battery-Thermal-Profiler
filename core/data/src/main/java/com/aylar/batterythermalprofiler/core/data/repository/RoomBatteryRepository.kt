@@ -21,5 +21,7 @@ class RoomBatteryRepository @Inject constructor(
 
     override fun snapshotsBetween(startMillis: Long, endMillis: Long): Flow<List<BatterySnapshot>> =
         dao.between(startMillis, endMillis).map { list -> list.map { it.toDomain() } }
+
+    override suspend fun deleteOlderThan(cutoffMillis: Long): Int = dao.deleteOlderThan(cutoffMillis)
 }
 

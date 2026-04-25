@@ -29,5 +29,7 @@ class RoomAppPowerRepository @Inject constructor(
 
     override fun entriesForLatestWindowOfDuration(durationMillis: Long): Flow<List<AppPowerEntry>> =
         dao.entriesForLatestWindowOfDuration(durationMillis).map { list -> list.map { it.toDomain() } }
+
+    override suspend fun deleteOlderThan(cutoffMillis: Long): Int = dao.deleteOlderThan(cutoffMillis)
 }
 

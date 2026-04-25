@@ -37,5 +37,8 @@ interface WakelockEventDao {
         startMillis: Long,
         endMillis: Long,
     ): Flow<List<WakelockEventEntity>>
+
+    @Query("DELETE FROM wakelock_events WHERE acquiredAtMillis < :cutoffMillis")
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

@@ -7,5 +7,6 @@ interface BatteryRepository {
     suspend fun insert(snapshot: BatterySnapshot)
     fun latest(): Flow<BatterySnapshot?>
     fun snapshotsBetween(startMillis: Long, endMillis: Long): Flow<List<BatterySnapshot>>
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 

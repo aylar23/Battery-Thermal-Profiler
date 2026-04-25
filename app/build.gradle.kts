@@ -69,6 +69,7 @@ dependencies {
     implementation(project(":feature:apps"))
     implementation(project(":feature:report"))
     implementation(project(":feature:trends"))
+    implementation(project(":feature:settings"))
 
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)

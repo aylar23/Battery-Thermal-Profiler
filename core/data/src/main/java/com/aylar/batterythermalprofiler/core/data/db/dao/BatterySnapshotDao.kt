@@ -23,5 +23,8 @@ interface BatterySnapshotDao {
         """,
     )
     fun between(startMillis: Long, endMillis: Long): Flow<List<BatterySnapshotEntity>>
+
+    @Query("DELETE FROM battery_snapshots WHERE timestampMillis < :cutoffMillis")
+    suspend fun deleteOlderThan(cutoffMillis: Long): Int
 }
 
