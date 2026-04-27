@@ -48,7 +48,7 @@ fun DashboardScreen(
 
     val pullRefreshState = rememberPullRefreshState(
         refreshing = state.isRefreshing,
-        onRefresh = onRefresh,
+        onRefresh = { if (hasUsagePermission) onRefresh() },
     )
 
     Surface(modifier = modifier.fillMaxSize().pullRefresh(pullRefreshState)) {
